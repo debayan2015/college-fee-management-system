@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Upload Excel File</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input type="file" name="file" required><br><br>
+
+        <button class="btn">Upload</button>
+    </form>
+</div>
+
+{% endblock %}

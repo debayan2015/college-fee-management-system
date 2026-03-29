@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+</head>
+<body>
+
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Student Profile</h2>
+
+    <p><b>Name:</b> {{ student.name }}</p>
+    <p><b>Email:</b> {{ student.email }}</p>
+    <p><b>Phone:</b> {{ student.phone }}</p>
+    <p><b>Course:</b> {{ student.course.name }}</p>
+</div>
+
+<div class="card">
+    <h3>Fee Details</h3>
+    <p>Total Fee: ₹ {{ total_fee }}</p>
+    <p>Paid: ₹ {{ total_paid }}</p>
+    <p>Due: ₹ {{ due }}</p>
+</div>
+
+<div class="card">
+    <h3>Payment History</h3>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Remarks</th>
+        </tr>
+
+        {% for p in payments %}
+        <tr>
+            <td>{{ p.payment_date }}</td>
+            <td>₹ {{ p.amount_paid }}</td>
+            <td>{{ p.remarks }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
+
+<br>
+<a href="/">⬅ Back to Dashboard</a>
+
+</body>
+</html>

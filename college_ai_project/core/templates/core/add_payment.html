@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Add Payment</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <select name="student">
+            {% for s in students %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="number" name="amount" placeholder="Amount" required><br><br>
+
+        <button class="btn">Add Payment</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #2c3e50;
+    font-family: Arial;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1abc9c;
+    border: none;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>Login</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button>Login</button>
+</form>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+
+</div>
+
+</body>
+</html>
